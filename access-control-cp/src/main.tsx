@@ -7,6 +7,8 @@ import Home from './routes/Home/Home.tsx';
 import Error from './routes/Error/Error.tsx';
 import Cadastro from './routes/Cadastro/Cadastro.tsx';
 import Login from './routes/Login/Login.tsx';
+import "./globals.css"
+
 
 const router = createBrowserRouter([
   {
