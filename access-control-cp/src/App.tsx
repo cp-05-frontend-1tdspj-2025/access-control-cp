@@ -1,7 +1,14 @@
+import { Outlet } from 'react-router-dom'
+import Cabecalho from './components/Cabecalho/Cabecalho'
 import './globals.css'
+import Rodape from './components/Rodape/Rodape'
 
-function App() {
-
-
+export default function App() {
+ return(
+    <>
+      <Cabecalho/>
+      <Outlet/>
+      <Rodape/>
+    </>
+  );
 }
-export default App
