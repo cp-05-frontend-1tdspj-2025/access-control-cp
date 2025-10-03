@@ -28,7 +28,7 @@ export default function Login(){
               {...register('nomeUsuario', { required: 'Nome de usuário é obrigatório' })}
             />
             {errors.nomeUsuario && (
-              <span className="text-red-500 text-sm mt-1 block">{errors.nomeUsuario.message}</span>
+              <span style={{color : "red"}}>{errors.nomeUsuario.message}</span>
           )}
         </div>
 
@@ -54,7 +54,21 @@ export default function Login(){
           )}
         </div>
 
-  
+       <div>
+            <label htmlFor="senha" className="block text-sm font-medium text-gray-700">
+              Senha:
+            </label>
+            <input
+              id="senha"
+              type="password"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              {...register('senha', { required: 'Senha é obrigatória' })}
+            />
+            {errors.senha && (
+              <span style={{color: "red"}}>{errors.senha.message}</span>
+            )}
+          </div>
+
         <button type="submit" className="w-full bg-cyan-400 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors">Entrar</button>
 
       </form>
