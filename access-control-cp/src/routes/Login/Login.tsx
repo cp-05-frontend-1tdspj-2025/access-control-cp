@@ -1,14 +1,31 @@
 import { useForm } from 'react-hook-form';
 import type { FormDataLogin } from "../../types/tipoLogin";
+import React, { useState } from 'react';
+import Gifsucesso from '../../img/aceito.gif'
+import Giferro from '../../img/erro.gif'
+
+
 
 export default function Login(){
 
     document.title = "Login";
 
-     const { register, handleSubmit, formState: { errors } } = useForm<FormDataLogin>();
+    const [loginError, setLoginError] = useState(false);
+    const [loginSuccess, setLoginSuccess] = useState(false);
+
+    const { register, handleSubmit, formState: { errors } } = useForm<FormDataLogin>();
 
     const onSubmit = (data: FormDataLogin) => {
-    console.log('Dados do formulário:', data);
+    console.log('Dados do formulário:', data)
+    const isLoginValid = true;
+
+    if(!isLoginValid) {
+      setLoginError(true);
+      setLoginSuccess(false);
+    } else {
+      setLoginError(false);
+      setLoginSuccess(true);
+    }
   
 };
 
@@ -70,7 +87,20 @@ export default function Login(){
           </div>
 
         <button type="submit" className="w-full bg-cyan-400 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors">Entrar</button>
+            
+          {loginError && (
+          <div className="mt-4 flex justify-center flex-col w-full items-center">
+            <img src={Giferro} alt="Imagem do Will smith sem saber quem voce é " className="w-20 h-20" />
+            <p>Erro ao efetuar o login</p>
+          </div>
+          )}
 
+          {loginSuccess && (
+          <div className="mt-4 flex justify-center flex-col w-full items-center">
+            <img src={Gifsucesso} alt="Imagem Will smith comemorando o seu acesso " className="w-20 h-20" />
+            <p>Logado com sucesso</p>
+          </div>
+          )}
       </form>
       </div>
     </main>
