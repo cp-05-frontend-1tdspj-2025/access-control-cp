@@ -1,29 +1,48 @@
 import { useForm } from 'react-hook-form';
 import type { FormDataCadastro } from "../../types/tipoCadastro";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Gifsucesso from '../../img/aceito.gif'
 import Giferro from '../../img/erro.gif'
+import { useNavigate } from 'react-router-dom';
+
+type TipoUsuario = {
+  nomeUsuario: string;
+  email: string;
+  senha: string;
+};
+
+const URL_API = "http://localhost:3000/usuarios";
 
 export default function Cadastro(){
 
-    document.title = "Cadastro";
+    useEffect(() => {
+      document.title = "Cadastrar Usuário";
+    }, []);
 
-    const [loginError, setLoginError] = useState(false);
-    const [loginSuccess, setLoginSuccess] = useState(false);
+    const navigate = useNavigate();
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormDataCadastro>();
+    const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting, isValid, isSubmitSuccessful },
+    } = useForm<TipoUsuario>({ mode: "onChange" });
 
-    const onSubmit = (data: FormDataCadastro) => {
-    console.log('Dados do formulário:', data)
-    const isLoginValid = true;
+ const onSubmit = (dados: TipoUsuario) => {
+    const cadastrarUsuario = async () => {
+      await fetch(URL_API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dados),
+      });
+    };
 
-    if(!isLoginValid) {
-      setLoginError(true);
-      setLoginSuccess(false);
-    } else {
-      setLoginError(false);
-      setLoginSuccess(true);
-    }
+    cadastrarUsuario();
+    alert("Usuário cadastrado com sucesso!");
+    navigate("/login"); // Redireciona para página de login após cadastrar
+  };
+
   
 };
 
