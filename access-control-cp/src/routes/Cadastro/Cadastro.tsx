@@ -30,7 +30,7 @@ export default function Cadastro(){
     return(
      <main className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="w-full max-w-md bg-white p-8 rounded shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">Cadastro</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
         <div>
@@ -84,7 +84,7 @@ export default function Cadastro(){
             )}
           </div>
 
-        <button type="submit" className="w-full bg-cyan-400 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors">Entrar</button>
+        <button type="submit" className="w-full bg-cyan-400 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors">Cadastrar</button>
             
           {loginError && (
           <div className="mt-4 flex justify-center flex-col w-full items-center">
