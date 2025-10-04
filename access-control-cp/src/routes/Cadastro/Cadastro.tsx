@@ -1,8 +1,6 @@
 import { useForm } from 'react-hook-form';
 import type { FormDataCadastro } from "../../types/tipoCadastro";
 import React, { useEffect, useState } from 'react';
-import Gifsucesso from '../../img/aceito.gif'
-import Giferro from '../../img/erro.gif'
 import { useNavigate } from 'react-router-dom';
 
 type TipoUsuario = {
