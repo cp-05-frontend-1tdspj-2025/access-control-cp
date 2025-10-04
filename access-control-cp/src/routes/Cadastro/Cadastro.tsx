@@ -100,7 +100,7 @@ export default function Cadastro(){
           </div>
           )}
       </form>
-      </div>
+        </div>
     </main>
   );
 }
