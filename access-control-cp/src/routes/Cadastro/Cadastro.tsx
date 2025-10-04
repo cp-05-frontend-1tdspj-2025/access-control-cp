@@ -21,11 +21,12 @@ export default function Cadastro(){
 
     const navigate = useNavigate();
 
-    const {
+  const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting, isValid, isSubmitSuccessful },
-    } = useForm<TipoUsuario>({ mode: "onChange" });
+  } = useForm<TipoUsuario>({ mode: "onChange" });
+
 
  const onSubmit = (dados: TipoUsuario) => {
     const cadastrarUsuario = async () => {
@@ -40,86 +41,102 @@ export default function Cadastro(){
 
     cadastrarUsuario();
     alert("Usuário cadastrado com sucesso!");
-    navigate("/login"); // Redireciona para página de login após cadastrar
+    navigate("/login");
   };
 
   
-};
-
     return(
-     <main className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="w-full max-w-md bg-white p-8 rounded shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Cadastro</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <main className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div>
+          <form
+           onSubmit={handleSubmit(onSubmit)}
+            className="mx-auto max-w-md space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow text-black"
+          >
+            <h2 className="text-lg font-semibold text-center">Cadastro de Usuário</h2>
 
         <div>
-          <label htmlFor="nomeUsuario" className="block text-sm font-medium text-gray-700">
-              Nome de usuário:
+            <label
+              htmlFor="nomeUsuario"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Nome de Usuário
             </label>
             <input
+              type="text"
               id="nomeUsuario"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              {...register('nomeUsuario', { required: 'Nome de usuário é obrigatório' })}
+              aria-invalid={!!errors.nomeUsuario}
+              className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              placeholder="Ex.: Joao Silva"
             />
             {errors.nomeUsuario && (
-              <span style={{color : "red"}}>{errors.nomeUsuario.message}</span>
-          )}
-        </div>
-
-
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email:
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              {...register('email', {
-                required: 'Email é obrigatório',
-                pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: 'Email inválido'
-              }
-            })}
-          />
-          {errors.email && (
-            <span style={{ color: 'red' }}>{errors.email.message}</span>
-          )}
-        </div>
-
-       <div>
-            <label htmlFor="senha" className="block text-sm font-medium text-gray-700">
-              Senha:
-            </label>
-            <input
-              id="senha"
-              type="password"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              {...register('senha', { required: 'Senha é obrigatória' })}
-            />
-            {errors.senha && (
-              <span style={{color: "red"}}>{errors.senha.message}</span>
+              <p role="alert" className="text-red-500">
+                {errors.nomeUsuario.message}
+              </p>
             )}
           </div>
 
-        <button type="submit" className="w-full bg-cyan-400 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors">Cadastrar</button>
-            
-          {loginError && (
-          <div className="mt-4 flex justify-center flex-col w-full items-center">
-            <img src={Giferro} alt="Imagem do Will smith sem saber quem voce é " className="w-20 h-20" />
-            <p>Erro ao cadastrar usuário</p>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              {...register("email", {
+                required: "Informe o email",
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: "Email inválido",
+                },
+              })}
+              aria-invalid={!!errors.email}
+              className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              placeholder="exemplo@email.com"
+            />
+            {errors.email && (
+              <p role="alert" className="text-red-500">
+                {errors.email.message}
+              </p>
+            )}
           </div>
-          )}
 
-          {loginSuccess && (
-          <div className="mt-4 flex justify-center flex-col w-full items-center">
-            <img src={Gifsucesso} alt="Imagem Will smith comemorando o seu acesso " className="w-20 h-20" />
-            <p>Cadastrado com sucesso</p>
+          <div>
+            <label
+              htmlFor="senha"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Senha
+            </label>
+            <input
+              type="password"
+              id="senha"
+              aria-invalid={!!errors.senha}
+              className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+            />
+            {errors.senha && (
+              <p role="alert" className="text-red-500">
+                {errors.senha.message}
+              </p>
+            )}
           </div>
-          )}
+
+          <div className="flex justify-end gap-2 pt-2">
+            <button
+              type="submit"
+              disabled={isSubmitting || !isValid}
+              className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
+            >
+              {isSubmitting ? "Enviando..." : "Cadastrar"}
+            </button>
+            {isSubmitSuccessful && (
+              <p className="text-green-600">Usuário cadastrado com sucesso!</p>
+            )}
+          </div>
       </form>
-        </div>
+      </div>
     </main>
   );
 }
