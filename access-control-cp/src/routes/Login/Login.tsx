@@ -53,7 +53,7 @@ const onSubmit = async (dados: TipoLogin) => {
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div>
+      <div className="rounded-lg w-full max-w-md bg-white p-8 shadow-md">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mx-auto max-w-md space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow text-black"
@@ -105,7 +105,7 @@ const onSubmit = async (dados: TipoLogin) => {
             <button
               type="submit"
               disabled={isSubmitting || !isValid}
-              className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
+              className="w-full bg-cyan-400 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors"
             >
               {isSubmitting ? "Entrando..." : "Login"}
             </button>
