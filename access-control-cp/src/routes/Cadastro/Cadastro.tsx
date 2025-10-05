@@ -3,12 +3,6 @@ import type { FormDataCadastro } from "../../types/tipoCadastro";
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-type TipoUsuario = {
-  nomeUsuario: string;
-  email: string;
-  senha: string;
-};
-
 const URL_API = "http://localhost:3000/usuarios";
 
 export default function Cadastro(){
@@ -23,10 +17,10 @@ export default function Cadastro(){
     handleSubmit,
     register,
     formState: { errors, isSubmitting, isValid, isSubmitSuccessful },
-  } = useForm<TipoUsuario>({ mode: "onChange" });
+  } = useForm<FormDataCadastro>({ mode: "onChange" });
 
 
- const onSubmit = (dados: TipoUsuario) => {
+ const onSubmit = (dados: FormDataCadastro) => {
     const cadastrarUsuario = async () => {
       await fetch(URL_API, {
         method: "POST",

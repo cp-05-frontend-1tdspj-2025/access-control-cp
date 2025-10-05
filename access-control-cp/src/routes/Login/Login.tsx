@@ -3,11 +3,9 @@ import { set, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Gifsucesso from '../../img/aceito.gif';
 import Giferro from '../../img/erro.gif';
+import type { FormDataCadastro } from "../../types/tipoCadastro";
 
-type TipoLogin = {
-  email: string;
-  senha: string;
-};
+
 
 const URL_API = "http://localhost:3000/usuarios";
 
@@ -24,9 +22,9 @@ export default function Login() {
     handleSubmit,
     register,
     formState: { errors, isSubmitting, isValid, isSubmitSuccessful },
-  } = useForm<TipoLogin>({ mode: "onChange" });
+  } = useForm<FormDataCadastro>({ mode: "onChange" });
 
-const onSubmit = async (dados: TipoLogin) => {
+const onSubmit = async (dados: FormDataCadastro) => {
   setLoginError(false);
   setLoginSuccess(false);
 
@@ -35,9 +33,7 @@ const onSubmit = async (dados: TipoLogin) => {
     const usuarios = await response.json();
 
     const usuarioEncontrado = usuarios.find(
-      (usuario: TipoLogin) =>
-        usuario.email === dados.email && usuario.senha === dados.senha
-    );
+        (usuario: FormDataCadastro) => usuario.email === dados.email && usuario.senha === dados.senha);
 
     if (usuarioEncontrado) {
       setLoginSuccess(true);
