@@ -80,3 +80,20 @@ http://localhost:5173
 ```
  
 Abra o seu navegador e acesse essa URL para ver o projeto em execução!
+
+## Tecnologias Utilizadas
+As tecnologias utilizadas no projeto foram: 
+ 
+![NPM](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=whi…
+ 
+## Integrantes do projeto
+- Erik Miyasato - RM: 565771
+- Hector Soria - RM: 565498
+- João Leal - RM: 564361
+- Gutemberg Rocha - RM: 562267
+## Link do repositório
+https://github.com/cp-05-frontend-1tdspj-2025/access-control-cp.git
