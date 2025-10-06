@@ -2,8 +2,7 @@ import { useForm } from 'react-hook-form';
 import type { FormDataCadastro } from "../../types/tipoCadastro";
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const URL_API = "http://localhost:3000/usuarios";
+const URL_API = import.meta.env.VITE_URL_API_USUARIOS;
 
 export default function Cadastro(){
 

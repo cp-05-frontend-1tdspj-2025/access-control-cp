@@ -4,10 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Gifsucesso from '../../img/aceito.gif';
 import Giferro from '../../img/erro.gif';
 import type { FormDataCadastro } from "../../types/tipoCadastro";
-
-
-
-const URL_API = "http://localhost:3000/usuarios";
+const URL_API = import.meta.env.VITE_URL_API_USUARIOS;
 
 export default function Login() {
   useEffect(() => {
