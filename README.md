@@ -57,6 +57,12 @@ npm install
  
 ```
 Este comando irá ler o arquivo package.json e baixar todas as bibliotecas listadas (como React, Vite, Tailwind CSS, etc.).
+
+```bash 
+npm i json-server
+```
+ 
+Esse comando irá baixar e instalar o json-server, necessário para rodar a API
  
 ### 3. Execute o Projeto
  
