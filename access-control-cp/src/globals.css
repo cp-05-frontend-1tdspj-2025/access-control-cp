@@ -28,3 +28,7 @@
     .link-social {
     @apply text-blue-500 hover:underline;
     }
+
+     .titulo-equipe {
+    @apply text-3xl font-semibold text-gray-900 text-center mb-12;
+}
