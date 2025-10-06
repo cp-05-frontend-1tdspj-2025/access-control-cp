@@ -6,9 +6,8 @@ Esse projeto consiste no nosso Checkpoint 05 da matéria de **Front-end Design E
 O objetivo do projeto é treinar o trabalho em equipe construindo uma aplicação web que permite cadastrar usuários e validar os cadastros em **Login**, onde verifica a existência e/ou a validação do usuário 
 
 ## Estrutura do Projeto
-```
-## Estrutura do Projeto
-```
+
+```bash
 access-control-cp
 │
 └── src
