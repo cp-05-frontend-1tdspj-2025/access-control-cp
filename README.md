@@ -7,6 +7,8 @@ O objetivo do projeto é treinar o trabalho em equipe construindo uma aplicaçã
 
 ## Estrutura do Projeto
 ```
+## Estrutura do Projeto
+```
 access-control-cp
 │
 └── src
@@ -26,6 +28,7 @@ access-control-cp
 │    ├── globals.css
 │    └── main.tsx
 ├── .gitignore
+├── .env
 ├── db.json
 ├── eslint.config.js
 ├── index.html
