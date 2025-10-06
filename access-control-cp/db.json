@@ -1,17 +1,10 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nome": "João Silva",
-      "nomeUsuario": "joaosilva",
-      "email": "joao@gmail.com"
-    },
-    {
-      "id": 2,
-      "nome": "Maria Oliveira",
-      "nomeUsuario": "mariaol",
-      "email": "maria@gmail.com"
+      "id": "df37",
+      "nomeUsuario": "joao",
+      "email": "jhbatistaleal@gmail.com",
+      "senha": "|!nh4Q1+E63}"
     }
-
   ]
 }
